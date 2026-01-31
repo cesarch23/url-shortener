@@ -1,0 +1,37 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0rem;
+   
+  max-width: 75rem; //1200px
+  margin: auto;
+  /* Glassmorphism effect */
+ 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  background-color: red;
+
+  &__logo {
+    display: flex;
+    align-items: center;
+ 
+     
+    color: var(--mat-sys-primary);
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+   
+}
