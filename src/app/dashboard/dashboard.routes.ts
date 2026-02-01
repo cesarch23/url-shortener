@@ -11,6 +11,14 @@ export const DASHBOARD_ROUTES:Routes = [
                 loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent)
             },
             {
+                path: 'links',
+                loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent)
+            },
+            {
+                path: 'analytics',
+                loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent)
+            },
+            {
                 path: '**',
                 redirectTo: 'home'
             }
