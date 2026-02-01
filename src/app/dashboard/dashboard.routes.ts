@@ -12,11 +12,11 @@ export const DASHBOARD_ROUTES:Routes = [
             },
             {
                 path: 'links',
-                loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent)
+                loadComponent: () => import('./pages/links/links.component').then(m => m.LinksComponent)
             },
             {
                 path: 'analytics',
-                loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent)
+                loadComponent: () => import('./pages/analytics/analytics.component').then(m => m.AnalyticsComponent)
             },
             {
                 path: '**',
