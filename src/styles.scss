@@ -33,8 +33,10 @@ html {
 
 /* Light Theme */
 :root, :host {
+  --primary-color: #0063d5;
+  --white-color:hsl(0, 0%, 90%);
   @include mat.theme-overrides((
-    primary: #005ac2,
+    primary: #0063d5,
     on-primary: #ffffff,
     primary-container: #d8e2ff,
     on-primary-container: #001a42,
@@ -42,7 +44,7 @@ html {
     primary-fixed: #d8e2ff,
     primary-fixed-dim: #aec6ff,
     on-primary-fixed: #001a42,
-    on-primary-fixed-variant: #004395,
+    on-primary-fixed-variant: #0063d5,
     secondary: #495e8b,
     on-secondary: #ffffff,
     secondary-container: #d8e2ff,
@@ -96,8 +98,8 @@ html {
 .dark {
   color-scheme: dark;
   @include mat.theme-overrides((
-    primary: #aec6ff,
-    on-primary: #002e6a,
+    primary: #fff,
+    on-primary: hsl(214, 100%, 10%),
     primary-container: #004395,
     on-primary-container: #d8e2ff,
     inverse-primary: #005ac2,
@@ -180,7 +182,7 @@ h1,h2,h3,h4,h5,h6,p{
   margin:0;
 }
 h1{
-  font-size: 2.5rem;
+  font-size: 3rem;
   padding: 1rem 0;
 }
 h2{
