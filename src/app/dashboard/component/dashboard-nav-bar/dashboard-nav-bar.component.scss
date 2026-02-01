@@ -1,0 +1,21 @@
+.navbar {
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: flex-end;
+  }
+  @media (min-width: 768px) {
+    &__actions {
+      gap: 1rem;
+       
+    }
+
+    
+  }
+}

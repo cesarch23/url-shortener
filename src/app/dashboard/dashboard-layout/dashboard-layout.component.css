@@ -5,6 +5,7 @@
     grid-template-areas: "sidebar navbar"
                          "sidebar content";
     height: 100dvh;
+    overflow: auto;
    
                     
     & .navbar-container{
