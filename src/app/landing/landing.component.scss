@@ -1,0 +1,15 @@
+.layout{
+    display: grid;
+    grid-template-areas: "header" 
+                         "hero";
+    grid-template-columns:1fr;
+    grid-template-rows: auto 1fr;
+    height: 100dvh;
+}
+.navbar__container{
+    grid-area: header;
+}  
+.hero__container{
+    grid-area: hero;
+    height: 100%;
+}
