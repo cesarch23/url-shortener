@@ -166,8 +166,48 @@ body {
   background: var(--mat-sys-surface);
   color: var(--mat-sys-on-surface);
   font-family: Roboto, Inter, sans-serif;
-  height: 100%;
-  max-width: 75rem; /*1200px*/;
+  // height: 100vh;
+  width: 90%;  
   margin: 0 auto;
-  width: 100%;
+  
+}
+@media(min-width: 768px) {
+  body {
+    max-width: 75rem; /*1200px*/;
+  }
+}
+h1,h2,h3,h4,h5,h6,p{
+  margin:0;
+}
+h1{
+  font-size: 2.5rem;
+  padding: 1rem 0;
+}
+h2{
+  font-size: 2rem;
+  padding: 1rem 0;
+}
+h3{
+  font-size: 1.75rem;
+  padding: .5rem 0;
+}
+h4{
+  font-size: 1.5rem;
+  padding: .5rem 0;
+}
+h5{
+  font-size: 1.25rem;
+  padding: .5rem 0;
+}
+h6{
+  font-size: 1rem;
+  padding: .5rem 0;
+}
+p{
+  font-size: 1rem;
+  line-height: 1.5;
+  margin:0;
+}
+a{
+  text-decoration: none;
 }
