@@ -169,15 +169,11 @@ body {
   color: var(--mat-sys-on-surface);
   font-family: Roboto, Inter, sans-serif;
   // height: 100vh;
-  width: 90%;  
+  width: 100%;  
   margin: 0 auto;
   
 }
-@media(min-width: 768px) {
-  body {
-    max-width: 75rem; /*1200px*/;
-  }
-}
+
 h1,h2,h3,h4,h5,h6,p{
   margin:0;
 }
