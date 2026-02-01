@@ -1,0 +1,40 @@
+<div class="sidebar" [class.sidebar--collapsed]="isCollapsed">
+  <!-- Header con botón de toggle -->
+  <div class="sidebar__header">
+    <div class="sidebar__logo">
+      <mat-icon class="sidebar__logo-icon">link</mat-icon>
+    </div>
+    <button 
+      mat-icon-button 
+      class="sidebar__toggle"
+      (click)="toggleCollapse()"
+      aria-label="Toggle sidebar">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+  </div>
+
+  <!-- Navegación -->
+  <nav class="sidebar__nav">
+    <div class="sidebar__nav-list">
+        @for (item of navItems; track $index) {
+            <button
+                mat-button
+                class="sidebar__nav-item"
+                [matTooltip]="isCollapsed ? item.label : ''"
+                matTooltipPosition="right"
+                [attr.aria-label]="item.label"
+                [routerLink]="item.route"
+                routerLinkActive="sidebar__nav-item--active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                >
+                    <mat-icon class="sidebar__nav-item-icon">{{ item.icon }}</mat-icon>
+                    @if(!isCollapsed){
+                        <span class="sidebar__nav-item-label">
+                            {{ item.label }}
+                        </span>
+                    }
+            </button>
+        }
+    </div>
+  </nav>
+</div>
