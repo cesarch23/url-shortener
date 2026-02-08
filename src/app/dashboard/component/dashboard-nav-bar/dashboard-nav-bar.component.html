@@ -1,6 +1,7 @@
 <nav class="navbar">
   <div class="navbar__actions">
     <button mat-icon-button ><mat-icon matPrefix>search</mat-icon></button>
-    <button mat-flat-button class="navbar__link">Account</button>
+    <button mat-icon-button ><mat-icon matPrefix>account_circle</mat-icon></button>
+    <button mat-icon-button (click)="logout()"><mat-icon matPrefix>logout</mat-icon></button>
   </div>
 </nav>

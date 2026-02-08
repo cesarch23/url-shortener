@@ -5,8 +5,7 @@ import { AuthService } from '../../../core/service/auth.service';
 @Component({
   selector: 'app-hero',
   imports: [
-    MatButtonModule,
-    RouterLink
+    MatButtonModule
 ],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss'

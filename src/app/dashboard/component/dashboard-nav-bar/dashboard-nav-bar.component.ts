@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
+import { AuthService } from '../../../core/service/auth.service';
 
 @Component({
   selector: 'dashboard-nav-bar',
@@ -16,5 +17,10 @@ import {MatInputModule} from '@angular/material/input';
   styleUrl: './dashboard-nav-bar.component.scss'
 })
 export class DashboardNavBarComponent {
+  private authService = inject(AuthService);
+
+  logout(){
+    this.authService.logout();
+  }
 
 }
