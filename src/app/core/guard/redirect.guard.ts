@@ -9,6 +9,5 @@ export const redirectGuard: CanActivateFn = (route, state) => {
     tokenService.redirectBasedRole();
     return false;
   }
-  router.navigateByUrl("/")//login
   return true;
 };
