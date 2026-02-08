@@ -1,12 +1,15 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { getCookie, removeCookie, setCookie } from 'typescript-cookie'
 import { jwtDecode, JwtPayload } from "jwt-decode";
-import { Role } from '../model/model.interface';
+import { Role, Roles } from '../model/model.interface';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TokenService {
+
+  private router = inject(Router);
 
   saveToken(token:string):void{
     console.log("set token cooke " , token);
@@ -40,6 +43,14 @@ export class TokenService {
       return null;
     }
 
+  }
+  redirectBasedRole(){
+    const userRole:Role | null = this.getUserRole();
+    if(!userRole) {
+      this.router.navigate(['/'])
+    }
+    if(userRole === Roles.USER) this.router.navigate(['/dashboard/home']);
+    else if(userRole === Roles.ADMIN) this.router.navigate(['/admin']);
   }
 
 
