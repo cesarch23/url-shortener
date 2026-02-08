@@ -2,11 +2,12 @@ import { Routes } from '@angular/router';
 import { Oauth2RedirectComponent } from './shared/components/oauth2-redirect/oauth2-redirect.component';
 import { LandingComponent } from './landing/landing.component';
 import { authGuard } from './core/guard/auth.guard';
+import { redirectGuard } from './core/guard/redirect.guard';
 
 export const routes: Routes = [
     {
         path: '',
-        //verificar autenticacion
+        canActivate: [redirectGuard],
         component: LandingComponent
 
     },
