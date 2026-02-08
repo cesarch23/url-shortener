@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import { RouterLink } from "@angular/router";
+import { AuthService } from '../../../core/service/auth.service';
 @Component({
   selector: 'app-hero',
   imports: [
@@ -11,5 +12,11 @@ import { RouterLink } from "@angular/router";
   styleUrl: './hero.component.scss'
 })
 export class HeroComponent {
+
+  private authService = inject(AuthService)
+
+  login(){
+    this.authService.loginWithGoogle()
+  }
 
 }
