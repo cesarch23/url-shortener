@@ -12,8 +12,8 @@ export class TokenService {
   private router = inject(Router);
 
   saveToken(token:string):void{
-    console.log("set token cooke " , token);
-    setCookie('token', token, { expires: 7, path: '/'});
+    this.removeToken();
+    setCookie('token', token, { expires: 1, path: '/'});
   }
   getToken():string | undefined {
      return getCookie('token');
