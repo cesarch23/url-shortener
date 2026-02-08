@@ -36,6 +36,7 @@ html {
   --primary-color: #0063d5;
   --white-color:hsl(0, 0%, 90%);
   --divider-color: hsla(0, 0%, 21%, 0.486);
+  --border-radius: 1rem;
   @include mat.theme-overrides((
     primary: #0063d5,
     on-primary: hsl(212, 100%, 98%),
@@ -65,7 +66,7 @@ html {
     background: #fcf8f9,
     on-background: #1c1b1c,
     surface: #fcf8f9,
-    surface-dim: #dcd9d9,
+    surface-dim: #c6c6c663,
     surface-bright: #fcf8f9,
     surface-container-lowest: #ffffff,
     surface-container-low: #f6f3f3,
@@ -124,10 +125,10 @@ html {
     tertiary-fixed-dim: #ffb68f,
     on-tertiary-fixed: #331100,
     on-tertiary-fixed-variant: #773200,
-    background: #131314,
+    background: #000000,
     on-background: #e5e2e2,
-    surface: #131314,
-    surface-dim: #131314,
+    surface: #000000,
+    surface-dim: #0d0d0d,
     surface-bright: #3a3939,
     surface-container-lowest: #0e0e0f,
     surface-container-low: #1c1b1c,
@@ -170,7 +171,7 @@ body {
   color: var(--mat-sys-on-surface);
   font-family: Roboto, Inter, sans-serif;
   height: 100dvh;
-  margin: 0 auto;
+  margin: 0;
   
 }
 

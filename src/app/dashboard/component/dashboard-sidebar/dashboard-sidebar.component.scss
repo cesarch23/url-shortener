@@ -1,14 +1,16 @@
 .sidebar {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
   transition: all 0.3s ease;
   padding: .5rem;
+  height: 100%;
  
   
   &__header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: .5rem;
      
   }
@@ -67,7 +69,9 @@
 
   // Estado colapsado
   &--collapsed {
-    // min-width: fit-content;
+    .sidebar__header {
+      justify-content: center;
+    }
     
     .sidebar__nav-item {
         justify-content: center;
