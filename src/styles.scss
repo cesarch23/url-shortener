@@ -38,8 +38,8 @@ html {
   --divider-color: hsla(0, 0%, 21%, 0.486);
   @include mat.theme-overrides((
     primary: #0063d5,
-    on-primary: #ffffff,
-    primary-container: #d8e2ff,
+    on-primary: hsl(212, 100%, 98%),
+    primary-container: hsl(212, 100%, 68%),
     on-primary-container: #001a42,
     inverse-primary: #aec6ff,
     primary-fixed: #d8e2ff,
