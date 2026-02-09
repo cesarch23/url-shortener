@@ -10,3 +10,12 @@ export interface UserResponse {
     email: string;
     provider: AuthProvider;
 }
+
+export interface ToastParams {
+  message: string;
+  action?: string;
+  duration?: number; //10 segundos -> en ms
+  type?: 'alert' | 'error' | 'success' | 'info';
+  horizontalPosition?: 'start' | 'center' | 'end' | 'left' | 'right';
+  verticalPosition?: 'top' | 'bottom';
+}
