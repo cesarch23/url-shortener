@@ -25,7 +25,7 @@ interface NavItem {
   styleUrl: './dashboard-sidebar.component.scss'
 })
 export class DashboardSidebarComponent {
-  isCollapsed = false;
+  isCollapsed = true;
 
   navItems: NavItem[] = [
     { label: 'Home', icon: 'home', route: '/dashboard/home' },
