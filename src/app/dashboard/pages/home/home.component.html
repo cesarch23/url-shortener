@@ -33,15 +33,15 @@
                 <mat-icon class="icon icon-expire">schedule</mat-icon>
                 <span class="text text-expire">Pronto a expirar</span>
             </div> -->
-            <div class="card" matRipple  style="--card-color: 112, 50, 154;" routerLink="/dashboard/analytics">
+            <div class="card" matRipple style="--card-color: 112, 50, 154;" routerLink="/dashboard/analytics">
                 <mat-icon class="icon icon-analytics">line_axis</mat-icon>
                 <span class="text text-analytics">Analytics</span>
             </div>
-            <div class="card" matRipple  style="--card-color: 202, 2, 2;" routerLink="/dashboard/links">
+            <div class="card" matRipple style="--card-color: 202, 2, 2;" routerLink="/dashboard/links">
                 <mat-icon class="icon icon-links">grid_view</mat-icon>
                 <span class="text text-links">Links</span>
             </div>
-            <div class="card card-full" matRipple  style="--card-color: 201, 118, 3;" routerLink="/dashboard/links">
+            <div class="card card-full" matRipple style="--card-color: 201, 118, 3;" routerLink="/dashboard/links">
                 <mat-icon class="icon icon-expire">schedule</mat-icon>
                 <span class="text text-expire">Pronto a expirar</span>
             </div>
@@ -49,205 +49,20 @@
 
         </div>
         <div class="recent-links">
-            <h4 class="recent-links__tittle" >Últimos links generados</h4>
+            <h4 class="recent-links__tittle">Últimos links generados</h4>
+            @for (link of links; track $index) {
             <div class="recent-links__link">
                 <div class="content">
-                    <p class="short">https://v19.mate/12345678</p>
-                    <span class="long">https://developer.mozilla.org/es/docs/Web/CSS/Reference/Properties/flex</span>
+                    <p class="short">{{link.shorLink}}</p>
+                    <span class="long"> {{link.longUrl}}</span>
                 </div>
-                <button mat-icon-button matTooltip="Copiar">
+                <button mat-icon-button matTooltip="Copiar" (click)="copyShorLink(link.shorLink)">
                     <mat-icon class="icon">content_copy</mat-icon>
                 </button>
             </div>
-            <div class="recent-links__link">
-               <div class="content">
-                    <p class="short">https://v19.mate/12345678</p>
-                    <span class="long">https://developer.mozilla.org/es/docs/Web/CSS/Reference/Properties/flex</span>
-                </div>
-                <button mat-icon-button matTooltip="Copiar">
-                    <mat-icon class="icon">content_copy</mat-icon>
-                </button>
-            </div>
-            <div class="recent-links__link">
-                <div class="content">
-                    <p class="short">https://v19.mate/12345678</p>
-                    <span class="long">https://developer.mozilla.org/es/docs/Web/CSS/Reference/Properties/flex</span>
-                </div>
-                <button mat-icon-button matTooltip="Copiar">
-                    <mat-icon class="icon">content_copy</mat-icon>
-                </button>
-            </div>
-            <div class="recent-links__link">
-                <div class="content">
-                    <p class="short">https://v19.mate/12345678</p>
-                    <span class="long">https://developer.mozilla.org/es/docs/Web/CSS/Reference/Properties/flex</span>
-                </div>
-                <button mat-icon-button matTooltip="Copiar">
-                    <mat-icon class="icon">content_copy</mat-icon>
-                </button>
-            </div>
-            <div class="recent-links__link">
-                <div class="content">
-                    <p class="short">https://v19.mate/12345678</p>
-                    <span class="long">https://developer.mozilla.org/es/docs/Web/CSS/Reference/Properties/flex</span>
-                </div>
-                <button mat-icon-button matTooltip="Copiar">
-                    <mat-icon class="icon">content_copy</mat-icon>
-                </button>
-            </div>
-            <div class="recent-links__link">
-                <div class="content">
-                    <p class="short">https://v19.mate/12345678</p>
-                    <span class="long">https://developer.mozilla.org/es/docs/Web/CSS/Reference/Properties/flex</span>
-                </div>
-                <button mat-icon-button matTooltip="Copiar">
-                    <mat-icon class="icon">content_copy</mat-icon>
-                </button>
-            </div>
-            <div class="recent-links__link">
-                <div class="content">
-                    <p class="short">https://v19.mate/12345678</p>
-                    <span class="long">https://developer.mozilla.org/es/docs/Web/CSS/Reference/Properties/flex</span>
-                </div>
-                <button mat-icon-button matTooltip="Copiar">
-                    <mat-icon class="icon">content_copy</mat-icon>
-                </button>
-            </div>
-            <div class="recent-links__link">
-                <div class="content">
-                    <p class="short">https://v19.mate/12345678</p>
-                    <span class="long">https://developer.mozilla.org/es/docs/Web/CSS/Reference/Properties/flex</span>
-                </div>
-                <button mat-icon-button matTooltip="Copiar">
-                    <mat-icon class="icon">content_copy</mat-icon>
-                </button>
-            </div>
-            <div class="recent-links__link">
-                <div class="content">
-                    <p class="short">https://v19.mate/12345678</p>
-                    <span class="long">https://developer.mozilla.org/es/docs/Web/CSS/Reference/Properties/flex</span>
-                </div>
-                <button mat-icon-button matTooltip="Copiar">
-                    <mat-icon class="icon">content_copy</mat-icon>
-                </button>
-            </div>
-            <div class="recent-links__link">
-                <div class="content">
-                    <p class="short">https://v19.mate/12345678</p>
-                    <span class="long">https://developer.mozilla.org/es/docs/Web/CSS/Reference/Properties/flex</span>
-                </div>
-                <button mat-icon-button matTooltip="Copiar">
-                    <mat-icon class="icon">content_copy</mat-icon>
-                </button>
-            </div>
-            <div class="recent-links__link">
-                <div class="content">
-                    <p class="short">https://v19.mate/12345678</p>
-                    <span class="long">https://developer.mozilla.org/es/docs/Web/CSS/Reference/Properties/flex</span>
-                </div>
-                <button mat-icon-button matTooltip="Copiar">
-                    <mat-icon class="icon">content_copy</mat-icon>
-                </button>
-            </div>
-            <div class="recent-links__link">
-                <div class="content">
-                    <p class="short">https://v19.mate/12345678</p>
-                    <span class="long">https://developer.mozilla.org/es/docs/Web/CSS/Reference/Properties/flex</span>
-                </div>
-                <button mat-icon-button matTooltip="Copiar">
-                    <mat-icon class="icon">content_copy</mat-icon>
-                </button>
-            </div>
-            <div class="recent-links__link">
-                <div class="content">
-                    <p class="short">https://v19.mate/12345678</p>
-                    <span class="long">https://developer.mozilla.org/es/docs/Web/CSS/Reference/Properties/flex</span>
-                </div>
-                <button mat-icon-button matTooltip="Copiar">
-                    <mat-icon class="icon">content_copy</mat-icon>
-                </button>
-            </div>
-            <div class="recent-links__link">
-                <div class="content">
-                    <p class="short">https://v19.mate/12345678</p>
-                    <span class="long">https://developer.mozilla.org/es/docs/Web/CSS/Reference/Properties/flex</span>
-                </div>
-                <button mat-icon-button matTooltip="Copiar">
-                    <mat-icon class="icon">content_copy</mat-icon>
-                </button>
-            </div>
-            <div class="recent-links__link">
-                <div class="content">
-                    <p class="short">https://v19.mate/12345678</p>
-                    <span class="long">https://developer.mozilla.org/es/docs/Web/CSS/Reference/Properties/flex</span>
-                </div>
-                <button mat-icon-button matTooltip="Copiar">
-                    <mat-icon class="icon">content_copy</mat-icon>
-                </button>
-            </div>
-            <div class="recent-links__link">
-                <div class="content">
-                    <p class="short">https://v19.mate/12345678</p>
-                    <span class="long">https://developer.mozilla.org/es/docs/Web/CSS/Reference/Properties/flex</span>
-                </div>
-                <button mat-icon-button matTooltip="Copiar">
-                    <mat-icon class="icon">content_copy</mat-icon>
-                </button>
-            </div>
-            <div class="recent-links__link">
-                <div class="content">
-                    <p class="short">https://v19.mate/12345678</p>
-                    <span class="long">https://developer.mozilla.org/es/docs/Web/CSS/Reference/Properties/flex</span>
-                </div>
-                <button mat-icon-button matTooltip="Copiar">
-                    <mat-icon class="icon">content_copy</mat-icon>
-                </button>
-            </div>
-            <div class="recent-links__link">
-                <div class="content">
-                    <p class="short">https://v19.mate/12345678</p>
-                    <span class="long">https://developer.mozilla.org/es/docs/Web/CSS/Reference/Properties/flex</span>
-                </div>
-                <button mat-icon-button matTooltip="Copiar">
-                    <mat-icon class="icon">content_copy</mat-icon>
-                </button>
-            </div>
-            <div class="recent-links__link">
-                <div class="content">
-                    <p class="short">https://v19.mate/12345678</p>
-                    <span class="long">https://developer.mozilla.org/es/docs/Web/CSS/Reference/Properties/flex</span>
-                </div>
-                <button mat-icon-button matTooltip="Copiar">
-                    <mat-icon class="icon">content_copy</mat-icon>
-                </button>
-            </div>
-            <div class="recent-links__link">
-                <div class="content">
-                    <p class="short">https://v19.mate/12345678</p>
-                    <span class="long">https://developer.mozilla.org/es/docs/Web/CSS/Reference/Properties/flex</span>
-                </div>
-                <button mat-icon-button matTooltip="Copiar">
-                    <mat-icon class="icon">content_copy</mat-icon>
-                </button>
-            </div>
-            <div class="recent-links__link">
-                <div class="content">
-                    <p class="short">https://v19.mate/12345678</p>
-                    <span class="long">https://developer.mozilla.org/es/docs/Web/CSS/Reference/Properties/flex</span>
-                </div>
-                <button mat-icon-button matTooltip="Copiar">
-                    <mat-icon class="icon">content_copy</mat-icon>
-                </button>
-            </div>
-            <div class="recent-links__link">
-                <div class="content">
-                    <p class="short">https://v19.mate/12345678</p>
-                    <span class="long">https://developer.mozilla.org/es/docs/Web/CSS/Reference/Properties/flex</span>
-                </div>
-                <button mat-icon-button matTooltip="Copiar">
-                    <mat-icon class="icon">content_copy</mat-icon>
-                </button>
-            </div>
+            }
+
+
         </div>
 
 
