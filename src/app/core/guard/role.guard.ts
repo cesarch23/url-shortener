@@ -10,7 +10,7 @@ export const roleGuard: CanActivateFn = (route, state,) => {
   const router = inject(Router);
   const allowedRoles = route.data['roles'] as Role[];
    
-  if(authService.hasRole(...allowedRoles)) return true;
+  if(authService.hasRole(allowedRoles)) return true;
   toastService.showToast({message:"No tiene autorizacion para ingresar esa página",type:'alert'})
   router.navigateByUrl('/')
   return false;

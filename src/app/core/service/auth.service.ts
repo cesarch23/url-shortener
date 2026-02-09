@@ -50,7 +50,7 @@ export class AuthService {
     this.tokenService.removeToken();
     this.router.navigate(['/']);
   }
-  hasRole(...roles:Role[]){
+  hasRole(roles:Role[]){
     const role:Role | null = this.tokenService.getUserRole();
     if(!role) return false;
     return roles.includes(role);
