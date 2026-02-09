@@ -1,8 +1,8 @@
 import { HttpClient, HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
-import { inject, Injectable, signal } from '@angular/core';
+import { computed, inject, Injectable, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { TokenService } from './token.service';
-import { UserResponse } from '../model/model.interface';
+import { Role, UserResponse } from '../model/model.interface';
 import { catchError, Observable, tap, throwError } from 'rxjs';
 import { withAuthToken } from '../interceptor/token.interceptor';
 import { environment } from '../../../environments/environment.development';
@@ -49,6 +49,11 @@ export class AuthService {
     this.currentUser.update(()=>null);
     this.tokenService.removeToken();
     this.router.navigate(['/']);
+  }
+  hasRole(...roles:Role[]){
+    const role:Role | null = this.tokenService.getUserRole();
+    if(!role) return false;
+    return roles.includes(role);
   }
 
 

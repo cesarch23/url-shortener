@@ -9,6 +9,7 @@ export interface UserResponse {
     name: string;//complete name
     email: string;
     provider: AuthProvider;
+    rol:Role;
 }
 
 export interface ToastParams {
