@@ -5,6 +5,7 @@ import { TokenService } from './token.service';
 import { UserResponse } from '../model/model.interface';
 import { catchError, Observable, tap, throwError } from 'rxjs';
 import { withAuthToken } from '../interceptor/token.interceptor';
+import { environment } from '../../../environments/environment.development';
 
 
 @Injectable({
@@ -12,7 +13,7 @@ import { withAuthToken } from '../interceptor/token.interceptor';
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:8080';
+  private apiUrl = environment.API_BASE_URL;
 
   private http = inject(HttpClient);
   private router = inject(Router);
