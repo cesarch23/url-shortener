@@ -3,20 +3,26 @@
 
     <div class="home__tools">
 
-        <form class="short-link">
+        <form class="short-link" [formGroup]="shortUrlForm">
             <h4 class="form_tittle"> Empieza a generar
                 links cortos
                 de forma gratuita
             </h4>
             <mat-form-field appearance="fill" class="form__field">
                 <mat-label>URL largo</mat-label>
-                <input type="url" matInput class="form__input">
+                <input type="url" matInput class="form__input" formControlName="longUrl" >
+                @if(this.shortUrlForm.controls['longUrl'].errors?.['pattern']){
+                    <mat-error> Ingresa una url válida </mat-error>
+                }
             </mat-form-field>
             <mat-form-field appearance="fill" class="form__field">
                 <mat-label>Fecha de expiración</mat-label>
-                <input type="datetime" matInput class="form__input">
+                <input type="datetime" matInput class="form__input"  [matDatepicker]="picker" formControlName="expiredDate" >
+                <mat-hint >MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
-            <button mat-raised-button mat-flat-button color="terciary" class="form__field">Acorta link</button>
+            <button type="button" mat-raised-button mat-flat-button color="terciary" class="form__field" (click)="shortLink()" >Acorta link</button>
         </form>
 
 
