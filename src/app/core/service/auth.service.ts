@@ -33,7 +33,7 @@ export class AuthService {
     this.getCurrentUser().subscribe();
   }
   getCurrentUser(): Observable<UserResponse> {
-    return this.http.get<UserResponse>(`${this.apiUrl}/api/auth/me`,{ context: withAuthToken() })
+    return this.http.get<UserResponse>(`${this.apiUrl}/api/v1/auth/me`,{ context: withAuthToken() })
     .pipe(
       tap(user=> this.currentUser.update(()=>user)),
       catchError((error:HttpErrorResponse)=>{

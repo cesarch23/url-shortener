@@ -20,3 +20,14 @@ export interface ToastParams {
   horizontalPosition?: 'start' | 'center' | 'end' | 'left' | 'right';
   verticalPosition?: 'top' | 'bottom';
 }
+export interface ShorUrlRequest{
+    longUrl:string;
+    expiredDate:Date;//ejm 2019-08-24T14:15:22Z
+    userId:string;
+}
+export interface LinkDTO{
+    longUrl:string;
+    shortCode:string;
+    createdDate:Date;//YYYY-MM-DD HH:MI:SS
+    expiredDate:Date;
+}
