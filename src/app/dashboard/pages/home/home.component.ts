@@ -139,13 +139,11 @@ export class HomeComponent {
     if(!expiredDate || !longUrl || !userId) return;
     this.linkService.generateShortUrl({longUrl,expiredDate,userId}).subscribe({
       next:(linkDto)=>{
-        this.toastService.showToast({message: 'Link generado con éxito',type: 'success'});
         this.toastService.showToast({message:'https://short.io/'.concat(linkDto.shortCode),action: 'copy'});
         this.router.navigateByUrl("/dashboard/links")
       },
       error: (error)=>{
         this.toastService.showToast({message: error,type: 'error'})
-         console.log(" resp ",console.error());
       }
     }
     );
