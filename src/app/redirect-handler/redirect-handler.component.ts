@@ -17,7 +17,7 @@ export class RedirectHandlerComponent  implements OnInit {
     this.activateRoute.paramMap.subscribe(param =>{
       //null safe
       const shortCode = param.get('code');
-      if(!shortCode) this.router.navigateByUrl('404');
+      if(!shortCode) this.router.navigateByUrl('not-found');
       else this.redirectUrlService.redirectByShortUrl(shortCode);
     })
   }

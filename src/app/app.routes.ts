@@ -41,7 +41,7 @@ export const routes: Routes = [
         loadChildren: ()=> import('./admin/admin.routes').then(m => m.ADMIN_ROUTES)
     },
     {
-        path:'404',
+        path:'not-found',
         component:NotFoundComponent
     },
     {
