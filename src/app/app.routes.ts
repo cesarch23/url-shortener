@@ -6,6 +6,7 @@ import { redirectGuard } from './core/guard/redirect.guard';
 import { Roles } from './core/model/model.interface';
 import { roleGuard } from './core/guard/role.guard';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
+import { RedirectHandlerComponent } from './redirect-handler/redirect-handler.component';
 
 export const routes: Routes = [
     {
@@ -14,11 +15,10 @@ export const routes: Routes = [
         component: LandingComponent
 
     },
-    // {
-    //     path:'a/:code',
-    //     //redirect component {{base_url}}api/v1/links/2FcOvHaf
-
-    // },
+    {
+        path:'r/:code',
+        component: RedirectHandlerComponent
+    },
     {
         path: 'oauth2/redirect',
         component: Oauth2RedirectComponent
