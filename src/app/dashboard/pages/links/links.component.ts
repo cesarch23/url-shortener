@@ -75,12 +75,6 @@ export class LinksComponent implements OnInit, AfterViewInit {
   }
 
   onPageChange(event: PageEvent): void {
-    console.log('🔄 Cambio de paginación:', {
-      paginaAnterior: event.previousPageIndex,
-      paginaNueva: event.pageIndex,
-      tamañoAnterior: this.pageSize,
-      tamañoNuevo: event.pageSize,
-    });
 
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
@@ -89,11 +83,6 @@ export class LinksComponent implements OnInit, AfterViewInit {
   isExpired(expiredDateStr: string): boolean {
     const today = new Date();
     const expired = new Date(expiredDateStr);
-
-    // quitar hora
-    // today.setHours(0, 0, 0, 0);
-    // expired.setHours(0, 0, 0, 0);
-
     return expired < today;
   }
   public async copyShorLink(shorLink: string) {
