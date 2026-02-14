@@ -1,1 +1,65 @@
-<p>links works!</p>
+<div class="links">
+    <div class="links__header">
+        <div>
+            <h2 class="links__title">Mis links</h2>
+            <span class="links__subtitle">Gestiona y monitorea todos tus links cortos</span>
+        </div>
+
+        <div class="links__header-buttons">
+            <button mat-flat-button > <mat-icon>add</mat-icon> Crear nuevo </button>
+            <button mat-stroked-button > <mat-icon>arrow_circle_down</mat-icon>Descargar links </button>
+        </div>
+    </div>
+    <div class="links__table">
+        <div class="">
+            @if (isLoading) {
+                <p>Cargando...</p>
+            }
+            @if(hasError) {
+                <p>error</p>
+            }
+            @if(!isLoading && !hasError){
+            <table mat-table [dataSource]="dataSource">
+                <ng-container matColumnDef="info">
+                    <th mat-header-cell *matHeaderCellDef> Detalles </th>
+                    <td mat-cell *matCellDef="let row">
+                        <p class="short-url"> {{ 'http://localhost:4200/r/'+row.shortCode }} </p>
+                        <p class="long-url"> {{ row.longUrl }} </p>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="state">
+                    <th mat-header-cell *matHeaderCellDef> Estado </th>
+                    <td mat-cell *matCellDef="let row"> {{ isExpired(row.expiredDate)  ? 'Expirado' : 'Activo' }} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef> Acciones </th>
+                    <td mat-cell *matCellDef="let row"> 
+                        <button mat-icon-button matTooltip="Copiar link" (click)="copyShorLink('http://localhost:4200/r/'+row.shortCode)" > <mat-icon>content_copy</mat-icon> </button>    
+                        <button mat-icon-button matTooltip="Editar link"> <mat-icon>edit</mat-icon> </button>    
+                        <button mat-icon-button matTooltip="Eliminar link"  > <mat-icon>delete</mat-icon> </button>    
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            </table>
+            <mat-paginator 
+                [pageSizeOptions]="pageSizeOptions" 
+                [length]="totalLinks"
+                [pageIndex]="pageIndex"
+                [pageSize]="pageSize"
+                (page)="onPageChange($event)"
+
+                aria-label="Seleccione la pagina de links"
+            ></mat-paginator>
+
+            }
+
+
+        </div>
+    </div>
+
+</div>

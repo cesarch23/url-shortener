@@ -137,9 +137,9 @@ export class HomeComponent {
     const { longUrl, expiredDate} = this.shortUrlForm.getRawValue();
     const userId = this.currentUser()?.id.toString();
     if(!expiredDate || !longUrl || !userId) return;
-    this.linkService.generateShortUrl({longUrl,expiredDate,userId}).subscribe({
+    this.linkService.generateShortUrl( {longUrl,expiredDate,userId},userId ).subscribe({
       next:(linkDto)=>{
-        this.toastService.showToast({message:'https://short.io/'.concat(linkDto.shortCode),action: 'copy'});
+        this.toastService.showToast({message:'http://localhost:4200/'.concat(linkDto.shortCode),action: 'copy'});
         this.router.navigateByUrl("/dashboard/links")
       },
       error: (error)=>{

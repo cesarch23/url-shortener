@@ -1,0 +1,37 @@
+.links{
+
+
+    &__header{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__header-buttons{
+        display: flex;
+        gap: 1rem;
+    }
+
+    &__table{
+        
+        & .short-url{
+            color: hsl(0, 0%, 80%);
+        }
+        & .long-url{
+            color: hsl(0, 0%, 50%);
+            max-width: 10rem;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            @media(width>=768px){
+                max-width: 25rem;
+            }
+            @media(width>=1024px){
+                max-width: 40rem;
+            }
+            @media(width>=1440px){
+                max-width: 60rem;
+            }
+        }
+        
+    }
+}
