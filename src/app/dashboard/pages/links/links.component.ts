@@ -39,9 +39,9 @@ export class LinksComponent implements OnInit, AfterViewInit {
   isLoading: boolean = false;
   hasError: boolean = false;
   totalLinks: number = 0;
-  pageSize: number = 3;
+  pageSize: number = 5;
   pageIndex: number = 0;
-  pageSizeOptions: number[] = [3, 5, 10];
+  pageSizeOptions: number[] = [5, 10, 20];
 
   dataSource: MatTableDataSource<LinkDTO> = new MatTableDataSource();
   displayedColumns: string[] = ['info', 'state', 'actions'];
