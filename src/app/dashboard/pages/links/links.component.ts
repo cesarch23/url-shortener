@@ -39,9 +39,9 @@ export class LinksComponent implements OnInit, AfterViewInit {
   isLoading: boolean = false;
   hasError: boolean = false;
   totalLinks: number = 0;
-  pageSize: number = 5;
+  pageSize: number = 10;
   pageIndex: number = 0;
-  pageSizeOptions: number[] = [5, 10, 20];
+  pageSizeOptions: number[] = [10, 15, 20];
 
   dataSource: MatTableDataSource<LinkDTO> = new MatTableDataSource();
   displayedColumns: string[] = ['info', 'state', 'actions'];
@@ -78,6 +78,7 @@ export class LinksComponent implements OnInit, AfterViewInit {
 
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
+    console.log({totalLinks:this.totalLinks,size: this.pageSize})
     this.loadLinks(event.pageIndex, event.pageSize);
   }
   isExpired(expiredDateStr: string): boolean {

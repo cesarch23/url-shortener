@@ -19,11 +19,9 @@ import {MatIconModule} from '@angular/material/icon';
 })
 export class AppComponent {
   title = 'url-shortener';
-  constructor( public theme: ThemeService){
+  constructor( private theme: ThemeService){
     this.theme.enableDark()
   }
-  toggleTheme() {
-    this.theme.toggle();
-  }
+  
 
 }
