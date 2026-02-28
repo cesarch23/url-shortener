@@ -1,7 +1,7 @@
 import { Component, inject, Inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MAT_DIALOG_DATA, MatDialogClose, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogClose, MatDialogRef, MatDialogTitle, MatDialogActions } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { LinkDTO } from '../../../core/model/model.interface';
@@ -18,7 +18,9 @@ import { ToastService } from '../../../core/service/toast.service';
     MatDatepickerModule,
     MatInputModule,
     MatButtonModule,
-    MatDialogClose
+    MatDialogClose,
+    MatDialogTitle,
+    MatDialogActions
 ],
   templateUrl: './link-dialog.component.html',
   styleUrl: './link-dialog.component.scss'
@@ -51,7 +53,6 @@ export class LinkDialogComponent {
     }
   }
   public shortLink(){
-    //TODO ADD LOGIC TO SHORT LINK
     if(this.shortUrlForm.invalid) return;
     const { longUrl, expiredDate } = this.shortUrlForm.getRawValue();
     const userId = this.currentUser()?.id.toString();
@@ -63,8 +64,8 @@ export class LinkDialogComponent {
       this.linkService.generateShortUrl({ longUrl,expiredDate,userId },userId).subscribe({
         next:(linkDto)=>{
           this.toastService.showToast({message:'http://localhost:4200/'.concat(linkDto.shortCode),action: 'copy'});
-          this.dialogRef.close();
           //TODO RECARGAR TABLA DE LINKS
+          this.dialogRef.close( {isChange: true} );
         },
         error: (error)=>{
           this.toastService.showToast({message: error,type: 'error'})

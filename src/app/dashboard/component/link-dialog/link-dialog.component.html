@@ -1,6 +1,6 @@
    <div class="link-dialog">
        <form class="form" [formGroup]="shortUrlForm">
-                <h4 class="form__title"> Empieza a generar
+                <h4 mat-dialog-title class="form__title"> Empieza a generar
                     links cortos
                     de forma gratuita
                 </h4>
@@ -18,7 +18,7 @@
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
-                <div class="form__buttons">
+                <div mat-dialog-actions class="form__buttons">
                     <button type="button" mat-flat-button   class="form__button" (click)="shortLink()" > {{ this.data.update ? "Actualizar link" : "Acorta link"}} </button>
                     <button type="button" mat-stroked-button  [matDialogClose] class="form__button"  >Cancelar</button>
                 </div>

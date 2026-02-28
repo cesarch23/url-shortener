@@ -110,7 +110,14 @@ export class LinksComponent implements OnInit, AfterViewInit {
       width: '400px',
       data: {
         update: false
+      },
+      enterAnimationDuration: '150ms',
+      exitAnimationDuration: '150ms',
+
+    }).afterClosed().subscribe(result=>{
+      if(result?.isChange){
+        this.loadLinks(this.pageIndex, this.pageSize);
       }
-    })
+    });
   }
 }
