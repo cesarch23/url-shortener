@@ -23,7 +23,8 @@
         
         & .sidebar-container{
             border-radius: var(--border-radius);
-            background-color:  var(--mat-sys-surface-dim2,hsl(0, 0%, 11%));
+            /* background-color:  var(--mat-sys-surface-dim2,hsl(0, 0%, 11%)); */
+            background-color:  var(--mat-sys-surface-dim);
             
         }
         & .content{
