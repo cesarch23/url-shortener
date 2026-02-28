@@ -15,9 +15,10 @@ import {
 } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { AuthService } from '../../../core/service/auth.service';
 import { MatTooltip } from '@angular/material/tooltip';
 import { ToastService } from '../../../core/service/toast.service';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { LinkDialogComponent } from '../../component/link-dialog/link-dialog.component';
 
 @Component({
   selector: 'app-links',
@@ -27,6 +28,7 @@ import { ToastService } from '../../../core/service/toast.service';
     MatPaginatorModule,
     MatButtonModule,
     MatIconModule,
+    MatDialogModule,
     MatTooltip,
   ],
   templateUrl: './links.component.html',
@@ -35,6 +37,7 @@ import { ToastService } from '../../../core/service/toast.service';
 export class LinksComponent implements OnInit, AfterViewInit {
   private linkService = inject(LinkService);
   private toastService = inject(ToastService);
+  private dialog = inject(MatDialog);
   today: Date = new Date();
   isLoading: boolean = false;
   hasError: boolean = false;
@@ -101,5 +104,13 @@ export class LinksComponent implements OnInit, AfterViewInit {
         type: 'error',
       });
     }
+  }
+  public openLinkDialog(){
+    const dialogRef = this.dialog.open(LinkDialogComponent,{
+      width: '400px',
+      data: {
+        update: false
+      }
+    })
   }
 }

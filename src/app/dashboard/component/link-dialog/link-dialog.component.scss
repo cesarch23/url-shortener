@@ -1,0 +1,22 @@
+.link-dialog{
+    padding: 1rem 2rem;
+    background-color:  var(--mat-sys-surface-dim,hsl(0, 0%, 11%));
+    .form{
+        display: flex;
+        flex-direction: column;
+
+        &__title{
+
+        }
+
+        &__field{
+
+        }
+        &__buttons{
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+        }
+
+    }
+}
