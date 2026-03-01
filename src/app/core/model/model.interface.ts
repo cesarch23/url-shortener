@@ -31,6 +31,10 @@ export interface LinkDTO{
     createdDate:Date;//YYYY-MM-DD HH:MI:SS
     expiredDate:Date;
 }
+export interface LinkUpdateRequest{
+    shortCode:string;
+    expiredDate:String;
+}
 
 export interface PageLinkDTO {
     content:          LinkDTO[];
