@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
 import { HttpClient, HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
-import { LinkDTO, PageLinkDTO, ShorUrlRequest } from '../../core/model/model.interface';
+import { LinkDTO, LinkUpdateRequest, PageLinkDTO, ShorUrlRequest } from '../../core/model/model.interface';
 import { catchError, Observable, switchMap, tap, throwError } from 'rxjs';
 import { withAuthToken } from '../../core/interceptor/token.interceptor';
 import { AuthService } from '../../core/service/auth.service';
@@ -37,6 +37,16 @@ export class LinkService {
   private getLinksByUserIdRequest(pageIndex:number, pageSize:number,userId:number):Observable<PageLinkDTO>{
       return this.http.get<PageLinkDTO>(`${this.baseUrl}/${userId}/links?page=${pageIndex}&size=${pageSize}`,{ context: withAuthToken() })
       .pipe(catchError((error:HttpErrorResponse)=>{
+        if(error.status == HttpStatusCode.Unauthorized ){
+          return throwError(()=>new Error("No tienes permiso para ingresar"))
+        }
+         return throwError(()=>new Error("Salio algo mal en nuestro servidor")) 
+      }));
+  }
+  public updateLink(linkRequest: LinkUpdateRequest){
+
+    return this.http.put<LinkDTO>(`${this.baseUrl}/links`,{...linkRequest}, { context: withAuthToken()  })
+    .pipe(catchError((error:HttpErrorResponse)=>{
         if(error.status == HttpStatusCode.Unauthorized ){
           return throwError(()=>new Error("No tienes permiso para ingresar"))
         }
