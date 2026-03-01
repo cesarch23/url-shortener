@@ -61,7 +61,6 @@ export class LinksComponent implements OnInit, AfterViewInit {
     this.isLoading = true;
     this.linkService.getLinksByUserId(pageIndex, pageSize).subscribe({
       next: (page) => {
-        console.log(page);
         this.isLoading = false;
 
         this.dataSource.data = page.content;
@@ -110,6 +109,23 @@ export class LinksComponent implements OnInit, AfterViewInit {
       width: '400px',
       data: {
         update: false
+      },
+      enterAnimationDuration: '150ms',
+      exitAnimationDuration: '150ms',
+
+    }).afterClosed().subscribe(result=>{
+      if(result?.isChange){
+        this.loadLinks(this.pageIndex, this.pageSize);
+      }
+    });
+  }
+  public openEditLinkDialog(linkDto:LinkDTO){
+    // console.log(linkDto);
+      const dialogRef = this.dialog.open(LinkDialogComponent,{
+      width: '400px',
+      data: {
+        update: true,
+        link: linkDto
       },
       enterAnimationDuration: '150ms',
       exitAnimationDuration: '150ms',

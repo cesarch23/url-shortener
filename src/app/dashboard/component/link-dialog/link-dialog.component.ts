@@ -1,4 +1,4 @@
-import { Component, inject, Inject } from '@angular/core';
+import { Component, inject, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_DIALOG_DATA, MatDialogClose, MatDialogRef, MatDialogTitle, MatDialogActions } from '@angular/material/dialog';
@@ -25,7 +25,7 @@ import { ToastService } from '../../../core/service/toast.service';
   templateUrl: './link-dialog.component.html',
   styleUrl: './link-dialog.component.scss'
 })
-export class LinkDialogComponent {
+export class LinkDialogComponent implements OnInit {
 
   private linkService = inject(LinkService);
   private authService = inject(AuthService);
@@ -43,11 +43,13 @@ export class LinkDialogComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: {
       update: boolean,
-      linkDTO?: LinkDTO
+      link?: LinkDTO
     }
-  ){
+  ){}
+  ngOnInit(): void {
     if(this.data.update){
       this.loadLinkInfo();
+      this.shortUrlForm.controls['longUrl'].disable();
     }else{
       this.dateIn30Days.setDate(new Date().getDate() + 30)
     }
@@ -59,12 +61,21 @@ export class LinkDialogComponent {
     if(!longUrl || !expiredDate || !userId) return;
 
     if(this.data.update){
-      //TODO ACTUALIZAR LINK
+      this.linkService.updateLink({ expiredDate: expiredDate.toISOString(), shortCode: this.data.link?.shortCode ?? "" }).subscribe({
+        next: (linkDto)=>{
+          
+          this.toastService.showToast({
+            message:'La fecha de expiracion del link fue actualizado exitosamente',action: 'ok'});
+          this.dialogRef.close( {isChange: true} );
+        },
+        error: (error)=>{
+          this.toastService.showToast({message: error,type: 'error'})
+        }
+      });
     }else{
       this.linkService.generateShortUrl({ longUrl,expiredDate,userId },userId).subscribe({
         next:(linkDto)=>{
           this.toastService.showToast({message:'http://localhost:4200/'.concat(linkDto.shortCode),action: 'copy'});
-          //TODO RECARGAR TABLA DE LINKS
           this.dialogRef.close( {isChange: true} );
         },
         error: (error)=>{
@@ -75,7 +86,11 @@ export class LinkDialogComponent {
 
   }
   public loadLinkInfo(){
-    
+    this.shortUrlForm.setValue({
+      longUrl: this.data.link?.longUrl ?? "",
+      expiredDate: new Date(this.data.link?.expiredDate ?? "")
+    })
+     
   }
 
 

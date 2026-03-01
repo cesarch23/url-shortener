@@ -37,7 +37,7 @@
                     <th mat-header-cell *matHeaderCellDef> Acciones </th>
                     <td mat-cell *matCellDef="let row"> 
                         <button mat-icon-button matTooltip="Copiar link" (click)="copyShorLink('http://localhost:4200/r/'+row.shortCode)" > <mat-icon>content_copy</mat-icon> </button>    
-                        <button mat-icon-button matTooltip="Editar link"> <mat-icon>edit</mat-icon> </button>    
+                        <button mat-icon-button matTooltip="Editar link" (click)="openEditLinkDialog(row)" > <mat-icon>edit</mat-icon> </button>    
                         <button mat-icon-button matTooltip="Eliminar link"  > <mat-icon>delete</mat-icon> </button>    
                     </td>
                 </ng-container>
